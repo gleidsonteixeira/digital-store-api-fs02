@@ -54,7 +54,7 @@ async function deletar(id) {
         const linha = await DB.execute(`DELETE FROM ${tabela} WHERE brand_id = ${id};`);
         return {
             type: "success",
-            message: linha.affectedRows != 0 ? "Excloido com sucesso." : "Id não encontrado"
+            message: linha.affectedRows != 0 ? "Excluído com sucesso." : "Id não encontrado"
         }
     } catch (error) {
         return {
