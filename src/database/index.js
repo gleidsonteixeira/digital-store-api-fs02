@@ -6,7 +6,7 @@ async function execute(sql){
         user: 'root',
         password: '1234',
         database: 'digital_store',
-        port: 3308
+        port: 3306
     });
 
     let [results] = await con.query(sql);

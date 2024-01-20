@@ -7,7 +7,9 @@ const genderRoutes = require('./src/routes/genderRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 const userController = require('./src/controllers/userController');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/', (request, response) => {
