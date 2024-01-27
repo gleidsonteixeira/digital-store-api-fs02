@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const table = 'users';
 
 async function listALL(){
-    return await DB.execute(`SELECT user_id, user_name, user_email FROM ${table};`);
+    return await DB.execute(`SELECT user_id, user_name, user_email, user_level FROM ${table};`);
 }
 
 async function create(data){
@@ -15,9 +15,9 @@ async function create(data){
 
         const [emailExiste] = await DB.execute(`SELECT * FROM ${table} WHERE user_email = '${data.user_email}';`);
 
-        if(result){
+        if(emailExiste){
             return {
-                type: 'warning',
+                type: 'warn',
                 message: 'Este usuário já existe!'
             };
         }
